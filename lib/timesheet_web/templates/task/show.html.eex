@@ -1,0 +1,27 @@
+<h1>Show Task</h1>
+
+<ul>
+  <li>
+    <strong>User:</strong>
+    <%= @task.user.name %>
+  </li>
+  
+  <li>
+    <strong>Job code:</strong>
+    <%= @task.job_code %>
+  </li>
+
+  <li>
+    <strong>Number of hours:</strong>
+    <%= @task.number_of_hours %>
+  </li>
+
+  <li>
+    <strong>Note:</strong>
+    <%= @task.note %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.task_path(@conn, :edit, @task) %></span>
+<span><%= link "Back", to: Routes.task_path(@conn, :index) %></span>

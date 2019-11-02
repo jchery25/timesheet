@@ -1,0 +1,29 @@
+<h1>Listing Jobs</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Job budget</th>
+      <th>Job code</th>
+      <th>Job desc</th>
+      <th>Job name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for job <- @jobs do %>
+    <tr>
+      <td><%= job.job_budget %></td>
+      <td><%= job.job_code %></td>
+      <td><%= job.job_desc %></td>
+      <td><%= job.job_name %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.job_path(@conn, :show, job) %></span>
+        <span><%= link "Delete", to: Routes.job_path(@conn, :delete, job), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

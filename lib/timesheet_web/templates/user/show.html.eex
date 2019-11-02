@@ -1,0 +1,45 @@
+<h1>Show User</h1>
+
+<%= if @user.id == @current_user.id do %>
+  <p><%= link "Edit Profile", to: Routes.user_path(@conn, :edit, @user) %></p>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </li>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @user.name %>
+  </li>
+
+  <li>
+    <strong>Manager:</strong>
+    <%= @user.isManager %>
+  </li>
+
+</ul>
+
+<h2>Tasks</h2>
+
+<%= if @user.id == @current_user.id do %>
+  <p><%= link("New Task", to: Routes.task_path(@conn, :new)) %></p>
+<% end %>
+
+<div class="row">
+  <%= for task <- @user.tasks do %>
+    <div class="card col-4">
+    <strong>Job Code:</strong>
+       <p><%= task.job_code %></p>
+     <strong>Job Note:</strong>
+        <p><%= task.note %></p>
+      <strong>Number Of Hours:</strong>
+       <p><%= task.number_of_hours %></p>
+    </div>
+  <% end %>
+</div>
+
+

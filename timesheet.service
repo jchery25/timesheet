@@ -1,0 +1,16 @@
+[Unit]
+Description = ACME Engineering Timesheet
+
+[Service]
+Type=simple
+User=game
+Group=game
+Restart=on-failure
+Environment=MIX_ENV=prod "PORT=5001"
+Environment=LANG=en_US.UTF-8
+
+WorkingDirectory=/home/game/CS5610/timesheet
+ExecStart=/bin/bash /home/game/CS5610/timesheet/start.sh
+
+[Install]
+WantedBy=multi-user.target
